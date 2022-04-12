@@ -108,6 +108,6 @@ def delete_rent_post(id):
 
 
 
-@view.route("/tution")
-def tution_post():
-    return render_template("view/tution_post.html")
+# @view.route("/tution")
+# def tution_post():
+#     return render_template("view/tution_post.html")
