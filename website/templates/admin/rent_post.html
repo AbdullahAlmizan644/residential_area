@@ -1,0 +1,75 @@
+{% extends 'admin/base.html' %}
+{% block title%}Rent House Post{% endblock %}
+{% block head %}
+{{ super() }}
+<style>
+
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+            <!-- Sale & Revenue Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-th fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Post</p>
+                                <h3 class="mb-0">{{ total[0] }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sale & Revenue End -->
+
+
+
+
+            <!-- Recent Sales Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Rent House Post Table</h6>
+                        <!-- <a href="">Show All</a> -->
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">
+                                    <th scope="col">Post_id</th>
+                                    <th scope="col">Headline</th>
+                                    <th scope="col">Writer</th>
+                                    <th scope="col">Details</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">DateTime</th>
+                                    <th scope="col">Delete</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for post in posts%}
+                                <tr>
+                                    <td>{{ post.0}}</td>
+                                    <td>{{ post.1}}</td>
+                                    <td>{{ post.2}}</td>
+                                    <td>{{ post.3}}</td>
+                                    <td>{{ post.4}}</td>
+                                    <td>{{ post.5}}</td>
+                                    <td><a class="btn btn-sm btn-warning" href="">Delete post</a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Recent Sales End -->
+
+
+
+
+{% endblock %}

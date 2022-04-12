@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	{% block head %}
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="megakit,business,company,agency,multipurpose,modern,bootstrap4">
+
+	<meta name="author" content="themefisher.com">
+
+	<title>{% block title %}{% endblock %}-residential area</title>
+
+	<!-- bootstrap.min css -->
+	<link rel="stylesheet" href={{url_for ("static", filename="view/plugins/bootstrap/css/bootstrap.min.css" )}}>
+	<!-- Icon Font Css -->
+	<link rel="stylesheet" href={{url_for ("static", filename="view/plugins/themify/css/themify-icons.css" )}}>
+	<link rel="stylesheet" href={{url_for ("static", filename="view/plugins/fontawesome/css/all.css" )}}>
+	<link rel="stylesheet" href={{url_for ("static", filename="view/plugins/magnific-popup/dist/magnific-popup.css" )}}>
+	<!-- Owl Carousel CSS -->
+	<link rel="stylesheet" href={{url_for ("static", filename="view/plugins/slick-carousel/slick/slick.css" )}}>
+	<link rel="stylesheet" href={{url_for ("static", filename="view/plugins/slick-carousel/slick/slick-theme.css" )}}>
+
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href={{url_for ("static", filename="view/css/style.css" )}}>
+
+
+	<!--editor-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href={{url_for("static", filename="view/editor/css/site.css")}}>
+	<link rel="stylesheet" href={{url_for("static", filename="view/editor/src/richtext.min.css")}}>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src={{url_for("static", filename="view/editor/src/jquery.richtext.js")}}></script>
+
+
+	{% endblock %}
+</head>
+
+<body>
+
+
+	<!-- Header Start -->
+
+	<header class="navigation">
+		<div class="header-top ">
+			<div class="container">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-lg-2 col-md-4">
+						<div class="header-top-socials text-center text-lg-left text-md-left">
+							<a href="#" target="_blank"><i class="ti-facebook"></i></a>
+							<a href="#" target="_blank"><i class="ti-twitter"></i></a>
+							<a href="#" target="_blank"><i class="ti-github"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-10 col-md-8 text-center text-lg-right text-md-right">
+						<div class="header-top-info">
+							<a href="#">Call Us : <span>018x-xxx-xxx</span></a>
+							<a href="#"><i class="fa fa-envelope mr-2"></i><span>support@gmail.com</span></a>
+							<a href="/admin_login"><i class="fa fa-user mr-2"></i><span>Admin</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg  py-4" id="navbar">
+			<div class="container">
+				<a class="navbar-brand" href="/">
+					Residential<span>Area</span>
+				</a>
+
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+					data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="fa fa-bars"></span>
+				</button>
+
+				<div class="collapse navbar-collapse text-center" id="navbarsExample09">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+						</li>
+
+						<li class="nav-item"><a class="nav-link" href="/rent_house">Rent house</a></li>
+						<li class="nav-item"><a class="nav-link" href="/paying_guest">Paying Guset</a></li>
+						<li class="nav-item"><a class="nav-link" href="/tution">Tution</a></li>
+						<li class="nav-item"><a class="nav-link" href="/about">about</a></li>
+						<!-- <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown05">
+						<li><a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+						<li><a class="dropdown-item" href="blog-sidebar.html">Blog with Sidebar</a></li>
+
+						<li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
+					</ul>
+			  </li> -->
+						<li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+
+						{% if "username" not in session %}
+						<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+						{% else %}
+						<li class="nav-item"><a class="nav-link" href="/profile">{{ session["username"] }}</a></li>
+						{% endif %}
+						<!-- <li class="nav-item"><a class="nav-link" href="/admin_login">Admin Login</a></li> -->
+					</ul>
+
+					<!-- <form class="form-lg-inline my-2 my-md-0 ml-lg-4 text-center">
+			  <a href="contact.html" class="btn btn-solid-border btn-round-full">Get a Quote</a>
+			</form> -->
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+	<ul class=flashes>
+		{% for category, message in messages %}
+		{% if category == "error"%}
+		<div class="alert alert-warning" role="alert">
+			{{message}}
+		</div>
+		{% elif category=="success" %}
+		<div class="alert alert-info" role="alert">
+			{{message}}
+		</div>
+		{% endif %}
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+
+
+	{% block content %} {% endblock %}
+
+
+
+
+	<!-- footer Start -->
+	<footer class="footer section">
+		{% block footer %}
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="widget">
+						<h4 class="text-capitalize mb-4">Company</h4>
+
+						<ul class="list-unstyled footer-menu lh-35">
+							<li><a href="#">Terms & Conditions</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Support</a></li>
+							<li><a href="#">FAQ</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="widget">
+						<h4 class="text-capitalize mb-4">Quick Links</h4>
+
+						<ul class="list-unstyled footer-menu lh-35">
+							<li><a href="#">About</a></li>
+							<li><a href="#">Services</a></li>
+							<li><a href="#">Team</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- <div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="widget">
+						<h4 class="text-capitalize mb-4">Subscribe Us</h4>
+						<p>Subscribe to get latest news article and resources </p>
+
+						<form action="#" class="sub-form">
+							<input type="text" class="form-control mb-3" placeholder="Subscribe Now ...">
+							<a href="#" class="btn btn-main btn-small">subscribe</a>
+						</form>
+					</div>
+				</div> -->
+
+				<div class="col-lg-3 ml-auto col-sm-6">
+					<div class="widget">
+						<div class="logo mb-4">
+							<h3>Residential<span>Area</span></h3>
+						</div>
+						<h6><a href="tel:+23-345-67890">Support@team.com</a></h6>
+						<a href="#"><span class="text-color h4">+088-01852-6588	</span></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-btm pt-4">
+				<div class="row">
+
+
+					<div class="col-lg-4 col-md-12 col-sm-12 text-left text-lg-left">
+						<ul class="list-inline footer-socials">
+							<li class="list-inline-item"><a href="#"><i class="ti-facebook mr-2"></i>Facebook</a></li>
+							<li class="list-inline-item"><a href="#"><i class="ti-twitter mr-2"></i>Twitter</a></li>
+							<li class="list-inline-item"><a href="#"><i class="ti-linkedin mr-2 "></i>Linkedin</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
+	</footer>
+
+	</div>
+
+	<!-- 
+    Essential Scripts
+    =====================================-->
+
+
+	<!-- Main jQuery -->
+	<script src={{url_for ("static", filename="view/plugins/jquery/jquery.js" )}}></script>
+	<script src={{url_for ("static", filename="view/js/contact.js" )}}></script>
+	<!-- Bootstrap 4.3.1 -->
+	<script src={{url_for ("static", filename="view/plugins/bootstrap/js/popper.js" )}}></script>
+	<script src={{url_for ("static", filename="view/plugins/bootstrap/js/bootstrap.min.js" )}}></script>
+	<!--  Magnific Popup-->
+	<script src={{url_for ("static", filename="view/plugins/magnific-popup/dist/jquery.magnific-popup.min.js"
+		)}}></script>
+	<!-- Slick Slider -->
+	<script src={{url_for ("static", filename="view/plugins/slick-carousel/slick/slick.min.js" )}}></script>
+	<!-- Counterup -->
+	<script src={{url_for ("static", filename="view/plugins/counterup/jquery.waypoints.min.js" )}}></script>
+	<script src={{url_for ("static", filename="view/plugins/counterup/jquery.counterup.min.js" )}}></script>
+
+	<!-- Google Map -->
+	<script src={{url_for ("static", filename="view/plugins/google-map/map.js" )}}></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+
+	<script src={{url_for ("static", filename="view/js/script.js" )}}></script>
+
+</body>
+
+</html>

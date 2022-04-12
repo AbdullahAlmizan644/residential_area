@@ -1,0 +1,38 @@
+{% extends 'view/base.html' %}
+{% block title %}Rent House details{% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+
+</style>
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<div class="container w-100 ">
+    <h1 class="text-info">Write House Rent Post</h1>
+    <br>
+    <form action="/rent_post_edit" method="post" id="rent_house" enctype="multipart/form-data">
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupFile01">Upload House Image</label>
+        <input type="file" name="img" class="form-control" id="inputGroupFile01">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Headline</label>
+        <input type="text" name="heading" class="form-control" id="exampleFormControlInput1">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Details</label>
+        <textarea class="form-control" name="details" id="exampleFormControlTextarea1" rows="15"></textarea>
+      </div>
+    </form>
+      <div class="mb-3">
+        <button type="submit" value="submit" form="rent_house" class="btn btn-info">post</button>
+      </div>
+
+</div>
+
+
+
+{% endblock %}
